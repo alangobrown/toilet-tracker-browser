@@ -1,0 +1,9 @@
+{
+  "firebase": "alans-project-loo",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

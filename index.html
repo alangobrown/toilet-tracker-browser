@@ -6,6 +6,21 @@
 <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
 <!-- AngularFire -->
 <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+<!-- Bootstrap-->
+
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 
 <script>
 var app = angular.module("sampleApp", ["firebase"]);
@@ -28,11 +43,18 @@ app.controller("BogCtrl", function($scope, $firebaseObject) {
 
   <body ng-controller="BogCtrl">
   <!--<p><{{bogs}}/p>-->
-    <ul>
-      <li ng-repeat="(bogId, bog) in bogs">
-      	<p>Bog {{bog.name}} ({{bogId}}) is {{bog.currentState}}  </p>
-      </li>
-    </ul>
+    <table class="table">
+      <tr>
+        <th>Bog</th>
+        <th>Bog ID</th>
+        <th>Status</th>
+      </tr>
+      <tr ng-repeat="(bogId, bog) in bogs">
+      	<td>{{bog.name}}</td>
+        <td>{{bogId}}</td>
+        <td>{{bog.currentState}}</td>
+      </tr>
+    </table>
 
 </body>
 </html>
