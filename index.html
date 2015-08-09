@@ -27,9 +27,10 @@ app.controller("BogCtrl", function($scope, $firebaseObject) {
 
 
   <body ng-controller="BogCtrl">
+  <!--<p><{{bogs}}/p>-->
     <ul>
-      <li ng-repeat="bog in bogs">
-      	<p>Bog {{bog.currentState}} {{bog.bogId}}</p>
+      <li ng-repeat="(bogId, bog) in bogs">
+      	<p>Bog {{bog.name}} ({{bogId}}) is {{bog.currentState}}  </p>
       </li>
     </ul>
 
