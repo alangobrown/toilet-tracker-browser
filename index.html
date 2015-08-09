@@ -20,6 +20,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<!-- My override css -->
+<link rel="stylesheet" href="bog-style.css">
 
 
 <script>
@@ -49,7 +51,7 @@ app.controller("BogCtrl", function($scope, $firebaseObject) {
         <th>Bog ID</th>
         <th>Status</th>
       </tr>
-      <tr ng-repeat="(bogId, bog) in bogs">
+      <tr ng-repeat="(bogId, bog) in bogs" class="{{bog.currentState}}">
       	<td>{{bog.name}}</td>
         <td>{{bogId}}</td>
         <td>{{bog.currentState}}</td>
