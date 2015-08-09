@@ -1,0 +1,37 @@
+<html ng-app="sampleApp">
+<head>
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+<script>
+var app = angular.module("sampleApp", ["firebase"]);
+
+app.controller("BogCtrl", function($scope, $firebaseObject) {
+  var ref = new Firebase("https://alans-project-loo.firebaseio.com/bogs");
+
+  // download the data into a local object
+  $scope.bogs = $firebaseObject(ref);
+
+  // putting a console.log here won't work, see below
+});
+
+</script>
+
+</head>
+<body>
+<h1>Toilet Status</h1>
+
+
+  <body ng-controller="BogCtrl">
+    <ul>
+      <li ng-repeat="bog in bogs">
+      	<p>Bog {{bog.currentState}} {{bog.bogId}}</p>
+      </li>
+    </ul>
+
+</body>
+</html>
